@@ -8,10 +8,10 @@ Pulmonary embolism (PE) is a life-threatening condition that requires prompt and
 
 Pulmonary embolism (PE), a serious and potentially fatal condition, surpasses lung, breast, and colon cancer combined in its death toll. The current diagnostic standard, computed tomography pulmonary angiography (CTPA), suffers from rates of both under and over-diagnosis. To address these issues, this paper presents a comprehensive model applying deep learning techniques for enhanced computer-aided diagnosis (CAD). Leveraging the strengths of convolutional neural networks (CNNs) and transformers, our model performs multiple tasks such as classification, segmentation, and localization on slice-level CTPA images using a single training model. The evaluation employs supervised learning, pre-training models on specific tasks, and fine-tuning them for PE diagnosis. This integrated approach aims to reduce the need for multiple models, offering a more efficient and effective method for PE detection.
 
-<figure>
+<figure><center>
   <img src="./final_img/CTPA.png" alt="sample" width="450" height="300">
-  <figcaption>Figure 1: Clinical Image used for PE Detection</figcaption>
-</figure>
+  <figcaption><center>Figure 1: Clinical Image used for PE Detection</figcaption></center>
+</center></figure>
 
 
 
@@ -28,4 +28,14 @@ The Radiological Society of North America (RSNA) provides a valuable dataset for
   </table>
   <figcaption><center>Figure 2: Example of Slice Level RSNA and FUMPE Dataset</center></figcaption>
 </figure>
+
+
+## Method
+In our methodology, we performed several steps to assess the impact of reusing pre-trained branches for slice level PE classification and segmentation tasks. Initially, we trained the classification branch for PE classification. Subsequently, we trained the encoder-decoder (U-Net) branch for PE segmentation (baseline). Following these individual tasks, we trained the classification branch jointly with the U-Net branch for PE segmentation (baseline).
+After establishing these baselines, we aimed to examine the benefits of reusing the pretrained branches. In Step 4, we reused the pretrained classification branch from Step 2 for PE classification, avoiding training from scratch. In Step 5, we reused the pre-trained U-Net branch from Step 3 for PE segmentation, again, without training from scratch. In Step 6, we reused both the pretrained classification branch from Step 2 and the pretrained U-Net branch from Step 3 for PE segmentation by the shared weights between both branches.
+
+<figure><center>
+  <img src="./final_img/OVALL.png" alt="sample" width="550" height="350">
+  <figcaption><center>Figure 3: Overall Model Architecture</figcaption></center>
+</center></figure>
 
