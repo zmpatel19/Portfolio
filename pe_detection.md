@@ -1,1 +1,2 @@
-# This page is only to add all the details of the PE Detection Project including the images and text.
+# Function Integration for CTPA Pulmonary Embolism: An Integrated Computer Vision Model for Classification, Segmentation and Localization.
+
