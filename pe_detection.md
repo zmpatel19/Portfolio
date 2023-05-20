@@ -69,6 +69,7 @@ Our model utilizes ImageNet 1k pretrained weights for initialization. ImageNet's
 We apply various optimization techniques and monitor key metrics during training to enhance performance and gauge the model's effectiveness. The integration of ResNet and Swin Transformer Tiny backbones results in a robust foundation for subsequent segmentation and localization tasks, contributing to efficient pulmonary embolism detection.
 
 
+
 <figure><center>
   <img src="./final_img/renet_results.png" alt="sample" width="550" height="350">
   <figcaption><center>Figure 4: ResNet-50, ImageNet 1k pretrained model</figcaption></center>
@@ -76,10 +77,13 @@ We apply various optimization techniques and monitor key metrics during training
 
 
 
+
 <figure><center>
   <img src="./final_img/swin_results.png" alt="sample" width="550" height="350">
   <figcaption><center>Figure 5: Swin Transformer Tiny, ImageNet 1k pretrained model</figcaption></center>
 </center></figure>
+
+
 
 
 
