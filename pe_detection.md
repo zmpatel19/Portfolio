@@ -10,7 +10,7 @@ Pulmonary embolism (PE), a serious and potentially fatal condition, surpasses lu
 
 <figure><center>
   <img src="./final_img/CTPA.png" alt="sample" width="450" height="300">
-  <figcaption><center>Figure 1: Clinical Image used for PE Detection</figcaption></center>
+  <figcaption><center>Figure 1: Clinical Image used for PE Detection</center></figcaption>
 </center></figure>
 
 
