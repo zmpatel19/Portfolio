@@ -7,3 +7,5 @@ title: Mohammad Zaki Patel's Portfolio
 
 
 ## [Project 1: Pulmonary Embolism Detection](/pe_detection.md)
+
+## [Project 2: Autonomous Lane following and systems integration using ROS II](/lan_following.md)
