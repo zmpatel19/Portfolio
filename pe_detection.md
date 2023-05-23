@@ -1,6 +1,6 @@
-
+---
 title: Pulmonary Embolism detection using Computer Vision 
-
+---
 
 # Function Integration for CTPA Pulmonary Embolism: An Integrated Computer Vision Model for Classification, Segmentation and Localization.
 
@@ -31,9 +31,9 @@ The Radiological Society of North America (RSNA) provides a valuable dataset for
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/RSNA_ds.JPG' alt='RSNA Dataset' width='450' height='290'></td>
-      <td><img src='./final_img/fumpe_ds.JPG' alt='FUMPE Dataset' width='450' height='290'></td>
-      <td><img src='./final_img/data_epc20.JPG' alt='Data split' width='450' height='290'></td>
+      <td><img src='./final_img/RSNA_ds.JPG' alt='RSNA Dataset' width='500' height='290'></td>
+      <td><img src='./final_img/fumpe_ds.JPG' alt='FUMPE Dataset' width='500' height='290'></td>
+      <td><img src='./final_img/data_epc20.JPG' alt='Data split' width='500' height='290'></td>
     </tr>
   </table>
   <figcaption><center>Figure 2: Example of Slice Level RSNA and FUMPE Dataset</center></figcaption>
@@ -49,7 +49,7 @@ After establishing these baselines, we aimed to examine the benefits of reusing 
 
 
 <figure><center>
- <img src="./final_img/OVALL.png" alt="sample" width="550" height="350">
+ <img src="./final_img/OVALL.png" alt="sample" width="550" height="380">
  <figcaption><center>Figure 3: Overall Model Architecture</center></figcaption>
 </center></figure>
 
@@ -67,13 +67,13 @@ Our classification model, a crucial part of our integrated architecture, differe
 
 
 <figure><center>
- <img src="./final_img/renet_results.png" alt="sample" width="550" height="350">
+ <img src="./final_img/renet_results.png" alt="sample" width="550" height="400">
   <figcaption><center>Figure 4: ResNet-50, ImageNet 1k pretrained model</center></figcaption>
 </center></figure>
 
 
 <figure><center>
-  <img src="./final_img/swin_results.png" alt="sample" width="550" height="350">
+  <img src="./final_img/swin_results.png" alt="sample" width="550" height="400">
   <figcaption><center>Figure 5: Swin Transformer Tiny, ImageNet 1k pretrained model</center></figcaption>
 </center></figure>
 
@@ -96,8 +96,8 @@ Our segmentation model forms a crucial part of our integrated architecture and e
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch resnet' width='650' height='350'></td>
-      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained resnet-50 backbone' width='650' height='350'></td>
+      <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch resnet' width='650' height='400'></td>
+      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained resnet-50 backbone' width='650' height='400'></td>
     </tr>
   </table>
   <figcaption><center>Figure 7: Comparison of training results of UNet from scratch and pre-trained ResNet-50 backbone </center></figcaption>
@@ -106,8 +106,8 @@ Our segmentation model forms a crucial part of our integrated architecture and e
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/swin_bad.JPG' alt='from scratch swin' width='650' height='350'></td>
-      <td><img src='./final_img/swin_GD.JPG' alt='pre-trained swin tiny backbone' width='650' height='350'></td>
+      <td><img src='./final_img/swin_bad.JPG' alt='from scratch swin' width='650' height='400'></td>
+      <td><img src='./final_img/swin_GD.JPG' alt='pre-trained swin tiny backbone' width='650' height='400'></td>
     </tr>
   </table>
   <figcaption><center>Figure 8: Comparison of training results of UNet from scratch and pre-trained Swin Tiny backbone </center></figcaption>
@@ -121,15 +121,15 @@ Our integrated architecture incorporates a localization model aiming to detect a
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/loc iou.JPG' alt='RCNN IoU' width='450' height='290'></td>
-      <td><img src='./final_img/loc_prec.JPG' alt='RCNN precision' width='450' height='290'></td>
+      <td><img src='./final_img/loc iou.JPG' alt='RCNN IoU' width='430' height='290'></td>
+      <td><img src='./final_img/loc_prec.JPG' alt='RCNN precision' width='430' height='290'></td>
     </tr>
   </table>
   <figcaption><center>Figure 9: IoU, precision and recall scores for the Faster RCNN model </center></figcaption>
 </figure>
 
 <figure><center>
-  <img src="./final_img/loc_resnet.png" alt="Localization results" width="650" height="300">
+  <img src="./final_img/loc_resnet.png" alt="Localization results" width="850" height="300">
   <figcaption><center>Figure 10: PE Localization predictions using PE pretrained ResNet50.</center></figcaption>
 </center></figure>
 
