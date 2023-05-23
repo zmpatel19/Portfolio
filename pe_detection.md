@@ -97,7 +97,7 @@ Our segmentation model forms a crucial part of our integrated architecture and e
   <table>
     <tr>
       <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch resnet' width='570' height='400'></td>
-      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained resnet-50 backbone' width='570' height='400'></td>
+      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained resnet-50 backbone' width='530' height='400'></td>
     </tr>
   </table>
   <figcaption><center>Figure 7: Comparison of training results of UNet from scratch and pre-trained ResNet-50 backbone </center></figcaption>
@@ -106,8 +106,8 @@ Our segmentation model forms a crucial part of our integrated architecture and e
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/swin_bad.JPG' alt='from scratch swin' width='570' height='400'></td>
-      <td><img src='./final_img/swin_GD.JPG' alt='pre-trained swin tiny backbone' width='570' height='400'></td>
+      <td><img src='./final_img/swin_bad.JPG' alt='from scratch swin' width='530' height='400'></td>
+      <td><img src='./final_img/swin_GD.JPG' alt='pre-trained swin tiny backbone' width='530' height='400'></td>
     </tr>
   </table>
   <figcaption><center>Figure 8: Comparison of training results of UNet from scratch and pre-trained Swin Tiny backbone </center></figcaption>
@@ -129,7 +129,7 @@ Our integrated architecture incorporates a localization model aiming to detect a
 </figure>
 
 <figure><center>
-  <img src="./final_img/loc_resnet.png" alt="Localization results" width="550" height="700">
+  <img src="./final_img/loc_resnet.png" alt="Localization results" width="550" height="600">
   <figcaption><center>Figure 10: PE Localization predictions using PE pretrained ResNet50.</center></figcaption>
 </center></figure>
 
