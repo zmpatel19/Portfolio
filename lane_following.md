@@ -78,7 +78,7 @@ When constructing the model, our main priorities were to optimize its speed and 
   <table>
     <tr>
       <td><img src="./final_img/canny_filter.png" alt="Canny edge filter" width="350" height="250"></td>
-      <td><img src="./final_img/canny_filter.png" alt="Canny edge filter" width="350" height="250"></td>
+      <td><img src="./final_img/canny2.png" alt="Canny edge filter" width="350" height="250"></td>
     </tr>
   </table>
   <figcaption><center>Figure 5: Canny Filtered Dataset sample</center></figcaption>
@@ -105,7 +105,7 @@ Although our dataset comprised 7324 images, it was not well-proportioned. As ill
       <td><img src="./final_img/balance_ds.png" alt="Balanced Dataset" width="350" height="250"></td>
     </tr>
   </table>
-  <figcaption><center>Figure 6: Canny Filtered Dataset sample</center></figcaption>
+  <figcaption><center>Figure 6: Dataset Information</center></figcaption>
 </figure>
 
 
@@ -150,7 +150,7 @@ The model predicts the angular_z value. It will predict the value among -0.07976
 
 <figure><center>
   <img src="./final_img/prediction.png" alt="Model prediction" width="650" height="270">
-  <figcaption><center>Figure 11: ROS workflow</center></figcaption>
+  <figcaption><center>Figure 11: ROS II workflow</center></figcaption>
 </center></figure>
 
 ## ROS Architecture
