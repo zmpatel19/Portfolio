@@ -62,14 +62,10 @@ Our unified model architecture accomplishes classification, segmentation, and lo
 Our classification model, a crucial part of our integrated architecture, differentiates between the presence and absence of pulmonary embolism in CTPA images. It leverages ResNet-50 and Swin Transformer Tiny backbones. ResNet-50, a deep convolutional neural network, excels at learning from numerous layers without performance degradation due to the vanishing gradient problem, thanks to its residual or skip connections. Swin Transformer Tiny, a recent architecture, delivers impressive results in computer vision tasks. With a hierarchical structure and local connections, it's well-suited for image analysis. Our model utilizes ImageNet 1k pretrained weights for initialization. ImageNet's large-scale dataset offers an advantageous starting point, enabling faster convergence and improved generalization when fine-tuning on the RSNA PE dataset, a balanced collection of CTPA images with and without pulmonary embolism. We apply various optimization techniques and monitor key metrics during training to enhance performance and gauge the model's effectiveness. The integration of ResNet and Swin Transformer Tiny backbones results in a robust foundation for subsequent segmentation and localization tasks, contributing to efficient pulmonary embolism detection.
 
 
-
-
 <figure><center>
  <img src="./final_img/renet_results.png" alt="sample" width="550" height="350">
   <figcaption><center>Figure 4: ResNet-50, ImageNet 1k pretrained model</center></figcaption>
 </center></figure>
-
-
 
 
 <figure><center>
@@ -78,14 +74,29 @@ Our classification model, a crucial part of our integrated architecture, differe
 </center></figure>
 
 
-
-
-
 Our classification model, essential to our integrated architecture, uses the ResNet-50 and Swin Transformer Tiny backbones. ResNet-50, a deep neural network, learns effectively from numerous layers without performance degradation, due to its use of residual connections. Swin Transformer Tiny, a newer architecture, excels in computer vision tasks, offering a hierarchical structure and local connections suitable for image analysis. The combination of these architectures enhances feature extraction and representation in our model. To initialize, we employ ImageNet 1k pretrained weights, leveraging their encoded knowledge for faster model convergence and better generalization when fine-tuning on the RSNA PE dataset, composed of balanced CTPA images. During training, we apply optimization techniques and monitor key metrics like accuracy training loss, ROC, AUC score, and F1 score. This approach provides robust groundwork for subsequent tasks within our architecture, ensuring accurate CTPA image classification, and contributing to efficient pulmonary embolism detection.
 
 
 
 
 ## Slice Level Image Segmentation
+
+Our segmentation model forms a crucial part of our integrated architecture and employs a U-Net architecture, renowned for its performance in biomedical image segmentation tasks. This model focuses on accurate detection and delineation of pulmonary embolism regions in CTPA images. The U-Net architecture features a symmetric encoder-decoder structure with skip connections to fuse high-resolution and low-resolution features, thus improving segmentation accuracy. We leverage the pretrained classification branch to enhance the performance of this segmentation model. The model is trained on the FUMPE dataset, with 3,500 annotated CTPA images from 16 patients, enabling it to accurately segment pulmonary embolism regions. Training procedures include dataset preparation, data balancing, and loss function selection, with performance assessment using metrics like the Dice similarity coefficient and Intersection over Union (IoU). Ultimately, by fine-tuning the U-Net architecture with pretrained weights, we present an effective segmentation solution contributing significantly to our goal of efficient pulmonary embolism detection.
+
+<figure><center>
+  <img src="./final_img/iou.JPG" alt="sample" width="450" height="290">
+  <figcaption><center>Figure 7: IoU score comparison with different UNet backbone</center></figcaption>
+</center></figure>
+
+
+<figure>
+  <table>
+    <tr>
+      <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch' width='650' height='350'></td>
+      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained backbone' width='650' height='350'></td>
+    </tr>
+  </table>
+  <figcaption><center>Figure 6: Comparison of training results from scratch and pre-trained weights </center></figcaption>
+</figure>
 
 
