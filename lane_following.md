@@ -2,7 +2,7 @@
 title: Systems Integration and development of Autonomous Lane Following
 ---
 
-Autonomous lane following feature development and TurtleBot systems integration using ROS II
+# Autonomous lane following feature development and TurtleBot systems integration using ROS II
 
 | Contributors         | 
 | -------------------- |
@@ -42,6 +42,11 @@ For the purpose of data collection, We used the Teleop twist keyboard to drive t
 </center></figure>
 
 
+[![Alternate Text](./final_img/datvideo.JPG "Data Collection Video")](https://youtu.be/dzeqWBgEtBI "Running Data Collection experiment")
+
+Video 1: Data collection experiment
+
+
 ## Building the Model
 
 1. The preprocess_image function is defined to load an image and convert it to a NumPy array of pixel values normalized between 0 and 1.
@@ -54,8 +59,15 @@ For the purpose of data collection, We used the Teleop twist keyboard to drive t
 8. The model is trained on the training set with a batch size of 32 and for 10 epochs, with the validation set used for monitoring model performance during training.
 
 
+<figure><center>
+  <img src="./final_img/CNN.png" alt="Data Collection Setup" width="450" height="270">
+  <figcaption><center>Figure 4: CNN Model</center></figcaption>
+</center></figure>
+
+
+
 ## Model Training 
-1. Challenges in Image Quality and Trade-offs with Filtered Images for Optimizing Speed and Efficiency of a Model
+> Challenges in Image Quality and Trade-offs with Filtered Images for Optimizing Speed and Efficiency of a Model
 
 
 When constructing the model, our main priorities were to optimize its speed and efficiency. Although our dataset was good, it was not flawless. Specifically, the quality of the images posed a challenge due to limited resources. We were unable to provide optimal lighting conditions, resulting in 30-40% of our images being washed out by the reflected light from the floor. Consequently, the track was not clearly visible in some of our images as can be seen in Figure 4 below.
@@ -74,13 +86,13 @@ When constructing the model, our main priorities were to optimize its speed and 
 
 We decided to stick with raw images instead of the filtered ones to prevent loss of information. 
 
-2. Challenges with Utilizing 'angular_z' and 'linear_x' as Labels for Image Classification Model 
+> Challenges with Utilizing 'angular_z' and 'linear_x' as Labels for Image Classification Model 
 
 
 At the outset, we had intended to utilize both 'angular_z' and 'linear_x' as labels for our images. The former parameter had three unique values that indicate the direction of movement, namely straight, left, and right. The latter parameter had two distinct values that represent the speed of movement - a constant speed when the Turtlebot moves straight and 0.0 when it comes to a stop to turn. Consequently, six possible combinations of 'angular_z' and 'linear_x' exist. However, when we trained the model using these two labels, the accuracy was disappointingly low, between 55% to 60%. 
 We decided to simplify the model by just using ‘angular_z’ as labels to our images and hardcoding a constant speed for the bot instead of using ‘linear_x’, this improved our model accuracy to between 90-92% on the validation dataset.
 
-3. Balancing the dataset
+> Balancing the dataset
 
 
 Although our dataset comprised 7324 images, it was not well-proportioned. As illustrated in Figure 3, the Turtlebot spent the majority of the time moving in a straight line, and the track only had three turns.
@@ -96,6 +108,12 @@ Although our dataset comprised 7324 images, it was not well-proportioned. As ill
   <figcaption><center>Figure 5: Canny Filtered Dataset sample</center></figcaption>
 </figure>
 
+
+<figure><center>
+  <img src="./final_img/model_params.png" alt="Model Parameters" width="450" height="320">
+  <figcaption><center>Figure 6: Model Parameters</center></figcaption>
+</center></figure>
+
 ## Model Prediction Evaluation
 
 
@@ -106,7 +124,7 @@ Although our dataset comprised 7324 images, it was not well-proportioned. As ill
       <td><img src="./final_img/validation_metric.JPG" alt="validation metric" width="450" height="250"></td>
     </tr>
   </table>
-  <figcaption><center>Figure 6: Evaluation metrics of model training from scratch</center></figcaption>
+  <figcaption><center>Figure 7: Evaluation metrics of model training from scratch</center></figcaption>
 </figure>
 
 
@@ -117,6 +135,66 @@ Although our dataset comprised 7324 images, it was not well-proportioned. As ill
       <td><img src="./final_img/pre_val.JPG" alt="pre-trained validation" width="450" height="250"></td>
     </tr>
   </table>
-  <figcaption><center>Figure 3: Evaluation metrics of model training from pre-trained weights</center></figcaption>
+  <figcaption><center>Figure 8: Evaluation metrics of model training from pre-trained weights</center></figcaption>
 </figure>
 
+
+<figure><center>
+  <img src="./final_img/comparison.JPG" alt="Model Comparison" width="450" height="330">
+  <figcaption><center>Figure 3: Model performance comparison</center></figcaption>
+</center></figure>
+
+Once the training is done and the model is trained and saved as a .h file which we can use to predict the angular z and publish it to the topic cmd_vel. As shown in the figure below. It subscribes to the topic /color/preview/image and imports the model. And publish to the topic cmd_vel.
+The model predicts the angular_z value. It will predict the value among -0.079766, 0.00000, and 0.079766. These are values of angular z used during data collection. The value is limited to three because we used a keyboard to collect data which gives only preset values For better results, we can use a joystick build for turtlebot to get various angles for angular_z. The value of linear_x is always set to 0.01. The value of linear_x is low for smother turn. If the value of linear_x is high we have to stop the robot and then turn or it may oversteer from the track.
+
+
+<figure><center>
+  <img src="./final_img/prediction.png" alt="Model prediction" width="650" height="270">
+  <figcaption><center>Figure 3: ROS workflow</center></figcaption>
+</center></figure>
+
+## ROS Architecture
+
+The node "data_collect" subscribes to two topics: "/color/preview/image" and "/cmd_vel". Once it has subscribed to the topics, it saves the image as a PNG file on the disk and creates a CSV file. To ensure that each image has a unique name, it imports the "Timestamp" module and uses it as the name of the image. After each image is saved, it updates the CSV file with the Timestamp, the path to the image, and the corresponding "linear_x" and "angular_z" values, as shown in Figure 3. You can find this code in "src → opencv_testing → opencv_testing → data_collect.py".
+The model training is done without using ros so it does not have a ros architecture.
+Deployment of the model is done with ros2. The node subscribes to the topic /color/preview/image and publishes to the topic /cmd_vel. It also imports the model.h which can be used for prediction. Image from the camera is given to the model and it gives the corresponding angular_z value which can be published to the topic /cmd_vel
+
+
+<figure><center>
+  <img src="./final_img/ros_arc.png" alt="Model prediction" width="650" height="550">
+  <figcaption><center>Figure 3: ROS II Architecture for Data Collection</center></figcaption>
+</center></figure>
+
+
+<figure><center>
+  <img src="./final_img/ros_arc_deploy.png" alt="Model prediction" width="650" height="550">
+  <figcaption><center>Figure 3: ROS II Architecture for model deployment</center></figcaption>
+</center></figure>
+
+## Results and Conclusison
+
+[![Alternate Text](./final_img/res1video.JPG "Sample 1")](https://youtu.be/h4oOE15XZF0 "model deployment")
+
+Video 2: Lane following sample 1
+
+[![Alternate Text](./final_img/res2video.JPG "Sample 1")](https://youtu.be/FFEOsBxEAcE "model deployment")
+
+Video 3: Lane following sample 2
+
+
+[![Alternate Text](./final_img/rosview.JPG "Sample 1")](https://youtu.be/6sID9XOPbds "ROS II Preview")
+
+Video 4: ROS II preview during deployment
+
+
+
+Figure 1: Data collection experiment video
+
+>Data
+
+Working on Google colab we had limited resources, and due to that any image data set with more than 3000 images could not be trained as the system ran out of ram. Given more computing power we could have trained a larger dataset resulting in better accuracy. Having a bigger dataset can provide more variation in the training data. We can use different shapes of path for better learning tasks. To compensate for this we used data from the same path in both directions. We 
+also balanced our dataset classes and removed the unnecessary images which improved it for training the model.
+
+>Model
+
+Regarding the model architecture, we attempted transfer learning using VGG16, which resulted in a higher accuracy of approximately 96% on the validation dataset. However, due to the large size of the VGG16 model, its deployment was considerably slower. Therefore, we decided to utilize a simpler CNN model, even though it was slightly less accurate, it was much faster than the VGG16 model.
