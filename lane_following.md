@@ -12,6 +12,10 @@ title: Systems Integration and development of Autonomous Lane Following
 
 ## Introduction
 
+[![Alternate Text](./final_img/overview.JPG "Overview")](https://youtu.be/oVHWMr3W7dQ "model deployment")
+
+Video 1: Project Overview Presentation
+
 In this group project, we aim to solve the problem of path/ lane following for autonomous robots using neural networks and deep-learning computer vision techniques. The goal of the project is to develop a model that can predict the steering angle of the robot based on the input frames from the camera. The project uses TurtleBot hardware equipped with the Oak-d camera for collecting the data, and then the collected data will be used to train and test the deep learning model. 
 Since the first draft of the project goals, some of the objectives have been modified to fit within the timeline and project scope. Initially, we were planning to change the location of the camera on the bot to improve the image quality. However, after a feasibility study, we realized that it was better to increase the height and lower the angle of the camera. This adjustment helped us to get a better viewing angle and improve the quality of the image data.
 Regarding the data collection experiments, we initially planned to use multiple styles of paths to increase the diversity of the dataset. However, it led to a huge dataset that required more computational resources to process. To overcome this challenge, we decided to use one style of path with passes from both directions and implement data augmentation techniques. This approach helped us to collect diverse data and build a smaller dataset, which reduced the complexity of the data pipeline.
@@ -44,7 +48,7 @@ For the purpose of data collection, We used the Teleop twist keyboard to drive t
 
 [![Alternate Text](./final_img/datvideo.JPG "Data Collection Video")](https://youtu.be/dzeqWBgEtBI "Running Data Collection experiment")
 
-Video 1: Data collection experiment
+Video 2: Data collection experiment
 
 
 ## Building the Model
@@ -175,16 +179,16 @@ Deployment of the model is done with ros2. The node subscribes to the topic /col
 
 [![Alternate Text](./final_img/res1video.JPG "Sample 1")](https://youtu.be/h4oOE15XZF0 "model deployment")
 
-Video 2: Lane following sample 1
+Video 3: Lane following sample 1
 
 [![Alternate Text](./final_img/res2video.JPG "Sample 1")](https://youtu.be/FFEOsBxEAcE "model deployment")
 
-Video 3: Lane following sample 2
+Video 4: Lane following sample 2
 
 
 [![Alternate Text](./final_img/rosview.JPG "ROS View")](https://youtu.be/6sID9XOPbds "ROS II Preview")
 
-Video 4: ROS II preview during deployment
+Video 5: ROS II preview during deployment
 
 
 >Data
