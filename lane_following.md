@@ -182,7 +182,7 @@ Video 2: Lane following sample 1
 Video 3: Lane following sample 2
 
 
-[![Alternate Text](./final_img/rosview.JPG "Sample 1")](https://youtu.be/6sID9XOPbds "ROS II Preview")
+[![Alternate Text](./final_img/rosview.JPG "ROS View")](https://youtu.be/6sID9XOPbds "ROS II Preview")
 
 Video 4: ROS II preview during deployment
 
