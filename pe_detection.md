@@ -96,8 +96,8 @@ Our segmentation model forms a crucial part of our integrated architecture and e
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch resnet' width='570' height='400'></td>
-      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained resnet-50 backbone' width='570' height='400'></td>
+      <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch resnet' width='600' height='400'></td>
+      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained resnet-50 backbone' width='600' height='300'></td>
     </tr>
   </table>
   <figcaption><center>Figure 7: Comparison of training results of UNet from scratch and pre-trained ResNet-50 backbone </center></figcaption>
@@ -106,8 +106,8 @@ Our segmentation model forms a crucial part of our integrated architecture and e
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/swin_bad.JPG' alt='from scratch swin' width='570' height='350'></td>
-      <td><img src='./final_img/swin_GD.JPG' alt='pre-trained swin tiny backbone' width='570' height='350'></td>
+      <td><img src='./final_img/swin_bad.JPG' alt='from scratch swin' width='600' height='300'></td>
+      <td><img src='./final_img/swin_GD.JPG' alt='pre-trained swin tiny backbone' width='600' height='300'></td>
     </tr>
   </table>
   <figcaption><center>Figure 8: Comparison of training results of UNet from scratch and pre-trained Swin Tiny backbone </center></figcaption>
