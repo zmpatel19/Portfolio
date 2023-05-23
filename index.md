@@ -3,7 +3,7 @@ title: Mohammad Zaki Patel's Portfolio
 ---
 
 <p align="center">
-  <b>M.SC. in Robotics & Autonomous Systems</b><br>
+  <b>M.Sc. in Robotics & Autonomous Systems</b><br>
   <b>Arizona State Univeristy</b><br>
   <b>Phone: 515-715-3588</b><br>
   <a href="mailto:zakipatel46.com">zakipatel46@gmail.com</a>
