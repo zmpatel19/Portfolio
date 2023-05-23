@@ -81,7 +81,7 @@ When constructing the model, our main priorities were to optimize its speed and 
       <td><img src="./final_img/canny_filter.png" alt="Canny edge filter" width="350" height="250"></td>
     </tr>
   </table>
-  <figcaption><center>Figure 4: Canny Filtered Dataset sample</center></figcaption>
+  <figcaption><center>Figure 5: Canny Filtered Dataset sample</center></figcaption>
 </figure>
 
 We decided to stick with raw images instead of the filtered ones to prevent loss of information. 
@@ -105,13 +105,13 @@ Although our dataset comprised 7324 images, it was not well-proportioned. As ill
       <td><img src="./final_img/balance_ds.png" alt="Balanced Dataset" width="350" height="250"></td>
     </tr>
   </table>
-  <figcaption><center>Figure 5: Canny Filtered Dataset sample</center></figcaption>
+  <figcaption><center>Figure 6: Canny Filtered Dataset sample</center></figcaption>
 </figure>
 
 
 <figure><center>
   <img src="./final_img/model_params.png" alt="Model Parameters" width="450" height="320">
-  <figcaption><center>Figure 6: Model Parameters</center></figcaption>
+  <figcaption><center>Figure 7: Model Parameters</center></figcaption>
 </center></figure>
 
 ## Model Prediction Evaluation
@@ -124,7 +124,7 @@ Although our dataset comprised 7324 images, it was not well-proportioned. As ill
       <td><img src="./final_img/validation_metric.JPG" alt="validation metric" width="450" height="250"></td>
     </tr>
   </table>
-  <figcaption><center>Figure 7: Evaluation metrics of model training from scratch</center></figcaption>
+  <figcaption><center>Figure 8: Evaluation metrics of model training from scratch</center></figcaption>
 </figure>
 
 
@@ -135,13 +135,13 @@ Although our dataset comprised 7324 images, it was not well-proportioned. As ill
       <td><img src="./final_img/pre_val.JPG" alt="pre-trained validation" width="450" height="250"></td>
     </tr>
   </table>
-  <figcaption><center>Figure 8: Evaluation metrics of model training from pre-trained weights</center></figcaption>
+  <figcaption><center>Figure 9: Evaluation metrics of model training from pre-trained weights</center></figcaption>
 </figure>
 
 
 <figure><center>
   <img src="./final_img/comparison.JPG" alt="Model Comparison" width="450" height="330">
-  <figcaption><center>Figure 3: Model performance comparison</center></figcaption>
+  <figcaption><center>Figure 10: Model performance comparison</center></figcaption>
 </center></figure>
 
 Once the training is done and the model is trained and saved as a .h file which we can use to predict the angular z and publish it to the topic cmd_vel. As shown in the figure below. It subscribes to the topic /color/preview/image and imports the model. And publish to the topic cmd_vel.
@@ -150,7 +150,7 @@ The model predicts the angular_z value. It will predict the value among -0.07976
 
 <figure><center>
   <img src="./final_img/prediction.png" alt="Model prediction" width="650" height="270">
-  <figcaption><center>Figure 3: ROS workflow</center></figcaption>
+  <figcaption><center>Figure 11: ROS workflow</center></figcaption>
 </center></figure>
 
 ## ROS Architecture
@@ -162,13 +162,13 @@ Deployment of the model is done with ros2. The node subscribes to the topic /col
 
 <figure><center>
   <img src="./final_img/ros_arc.png" alt="Model prediction" width="650" height="550">
-  <figcaption><center>Figure 3: ROS II Architecture for Data Collection</center></figcaption>
+  <figcaption><center>Figure 12: ROS II Architecture for Data Collection</center></figcaption>
 </center></figure>
 
 
 <figure><center>
   <img src="./final_img/ros_arc_deploy.png" alt="Model prediction" width="650" height="550">
-  <figcaption><center>Figure 3: ROS II Architecture for model deployment</center></figcaption>
+  <figcaption><center>Figure 13: ROS II Architecture for model deployment</center></figcaption>
 </center></figure>
 
 ## Results and Conclusison
@@ -186,9 +186,6 @@ Video 3: Lane following sample 2
 
 Video 4: ROS II preview during deployment
 
-
-
-Figure 1: Data collection experiment video
 
 >Data
 
