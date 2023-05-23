@@ -2,8 +2,21 @@
 title: Mohammad Zaki Patel's Portfolio
 ---
 
-# This is the main index page which will contain links to all other pages.
+<p align="center">
+  <b>M.SC. in Robotics & Autonomous Systems</b><br>
+  <b>Arizona State Univeristy</b><br>
+  <b>Phone: 515-715-3588</b></br>
+  <a href="mailto:zakipatel46.com">zakipatel46@gmail.com</a>
+</p>
 
+
+<br>
+<br>
+
+Passionate and detail-oriented Robotics & Autonomous Systems graduate student experienced in computer vision, mechatronics systems, machine learning, and manufacturing. Proven ability to thrive in dynamic, collaborative environments with a continuous learning mindset while delivering results. Actively seeking full-time opportunities starting May 2023.
+
+Areas of Interest:
+Robotics Software and Hardware development, Mechatronics Systems controls, Industrial Automation, and Artificial Intelligence applications.
 
 
 ## [Project 1: Pulmonary Embolism Detection](/pe_detection.md)
