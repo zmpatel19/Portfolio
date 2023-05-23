@@ -1,5 +1,5 @@
 ---
-title: Foldable Robots Project 
+title: Mohammad Zaki Patel's Portfolio
 ---
 
 # This is the main index page which will contain links to all other pages.
