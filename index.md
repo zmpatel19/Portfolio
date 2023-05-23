@@ -11,7 +11,6 @@ title: Mohammad Zaki Patel's Portfolio
 
 
 <br>
-<br>
 
 Passionate and detail-oriented Robotics & Autonomous Systems graduate student experienced in computer vision, mechatronics systems, machine learning, and manufacturing. Proven ability to thrive in dynamic, collaborative environments with a continuous learning mindset while delivering results. Actively seeking full-time opportunities starting May 2023.
 
