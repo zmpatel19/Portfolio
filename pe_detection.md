@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Pulmonary embolism (PE) is a life-threatening condition that requires prompt and accurate detection using computed tomography pulmonary angiography (CTPA) scans. This study presents a novel integrated computer vision model that combines classification, segmentation, and localization tasks for efficient and precise PE detection in CTPA scans. Our model incorporates a deep learning architecture and employs a multi-task learning approach to simultaneously address the three core computer vision tasks. It was trained and tested on medical dataset of slice-level CTPA scans, with rigorous data preprocessing techniques applied. The model's performance was assessed using evaluation metrics such as accuracy, F1-score, DICE and IoU scores.
+Pulmonary embolism (PE) is a life-threatening condition that requires prompt and accurate detection using computed tomography pulmonary angiography (CTPA) scans. This study presents a novel integrated computer vision model that combines classification, segmentation, and localization tasks for efficient and precise PE detection in CTPA scans. Our model incorporates a deep learning architecture and employs a multi-task learning approach to simultaneously address the three core computer vision tasks. It was trained and tested on medical dataset of slice-level CTPA scans, with rigorous data preprocessing techniques applied. The model's performance was assessed using evaluation metrics such as accuracy, F1-score, and IoU scores.
 
 ## Introduction
 
@@ -125,9 +125,28 @@ Our integrated architecture incorporates a localization model aiming to detect a
 </figure>
 
 <figure><center>
-  <img src="./final_img/loc_resnet.png" alt="Localization results" width="450" height="290">
+  <img src="./final_img/loc_resnet.png" alt="Localization results" width="650" height="300">
   <figcaption><center>Figure 10: PE Localization predictions using PE pretrained ResNet50.</center></figcaption>
 </center></figure>
 
 ## Results
 
+
+In our research, we employed two pre-trained models, ResNet-50 and Swin Transformer Tiny, for the classification task in PE detection. The ResNet-50 model delivered impressive results with a testing accuracy of 0.92 and an AUC score of 0.98. The Swin Transformer Tiny model demonstrated a satisfactory performance with a prediction accuracy of 0.87 and an AUC score of 0.97. Subsequently, we leveraged the pre-trained classification model to train our segmentation branch using the U-Net architecture. This strategy significantly improved the segmentation performance, as observed in the substantial increase in IoU scores when using pre-trained weights from the PE dataset. The scores reached 0.88 and 0.82 for the ResNet-50 and Swin Transformer Tiny models, respectively. This highlights the benefit of model integration, which improved PE detection in the segmentation task. Finally, we focused on the localization task, using the PE pre-trained ResNet-50 model as the feature extractor for the Faster R-CNN architecture. The model performed excellently in determining the approximate location of PE instances in CTPA images, with an IoU score of 0.836. Further, precision and recall metrics were calculated to assess the model's ability to identify true positive instances accurately while minimizing false positives and negatives.
+
+## Conclusion
+
+In conclusion, our research aimed to address the challenges faced in pulmonary embolism detection by designing an integrated deep learning model that combines classification, segmentation, and localization tasks. By leveraging the power of ResNet-50 and Swin Transformer Tiny architectures, and building upon a strong classification foundation, we successfully developed an efficient and effective model for detecting and localizing pulmonary embolism instances in CTPA images. Our experimental results demonstrated the benefits of function integration, as the pre-trained weights from both ImageNet and the PE dataset contributed to a richer initial feature set. This allowed our model to learn new features and refine existing ones more effectively, ultimately resulting in high performance across all three tasks. The integrated model achieved impressive testing accuracy, AUC scores, IoU scores, precision, and recall metrics, showcasing its potential to improve the diagnosis and treatment of pulmonary embolism. The success of our integrated approach highlights the potential of deep learning and computer vision techniques in medical imaging applications. This research not only contributes to the field of pulmonary embolism detection but also serves as a valuable reference for future work in other medical imaging domains. By further refining and expanding upon the integrated model architecture and exploring additional techniques, we believe that the field of computer-aided diagnosis can continue to advance, ultimately leading to more accurate and efficient healthcare solutions for patients worldwide.
+
+## Future Work
+
+
+In terms of future work, there are several potential avenues for further enhancing the performance and capabilities of our integrated model. One approach would be to increase the amount of data used for training the segmentation and localization branches, particularly by incorporating more images containing the PE class. This could help improve the quality of detection and enable the model to better generalize to real-world clinical scenarios. Additionally, experimenting with larger Swin Transformer models, pretrained on more extensive ImageNet weights, may lead to improvements in feature extraction and overall performance. Furthermore, exploring alternative models and leveraging frameworks such as the MMlab API for the localization task could provide new insights and opportunities for optimization. By continuing to refine the model architecture and drawing upon a diverse array of techniques, future research can build upon the successes of this work and further advance the field of computer-aided diagnosis in medical imaging.
+
+## References
+
+1. He, K., Zhang, X., Ren, S., \& Sun, J. (2016). Deep residual learning for image recognition. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). https://doi.org/10.1109/cvpr.2016.90
+2. Islam, N. U., Gehlot, S., Zhou, Z., Gotway, M. B., \& Liang, J. (2021a). Seeking an optimal approach for computer-aided pulmonary embolism detection. Machine Learning in Medical Imaging, 692–702. https://doi.org/10.1007/978-3-030-87589-3-71
+3. Liu, Ze, et al. “Swin Transformer: Hierarchical Vision Transformer Using Shifted Windows.” 2021 IEEE/CVF International Conference on Computer Vision (ICCV), 2021, https://doi.org/10.1109/iccv48922.2021.00986.
+4. Ronneberger, Olaf, et al. “U-Net: Convolutional Networks for Biomedical Image Segmentation.” Lecture Notes in Computer Science, 2015, pp. 234–241, https://doi.org/10.1007/978-3-319-24574-4-28.
+5. Ren, S., He, K., Girshick, R., \& Sun, J. (2017). Faster R-CNN: Towards real-time object detection with region proposal networks. IEEE Transactions on Pattern Analysis and Machine Intelligence, 39(6), 1137–1149. https://doi.org/10.1109/tpami.2016.2577031   
