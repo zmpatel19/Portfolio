@@ -85,18 +85,49 @@ Our segmentation model forms a crucial part of our integrated architecture and e
 
 <figure><center>
   <img src="./final_img/iou.JPG" alt="sample" width="450" height="290">
-  <figcaption><center>Figure 7: IoU score comparison with different UNet backbone</center></figcaption>
+  <figcaption><center>Figure 6: IoU score comparison with different UNet backbone</center></figcaption>
 </center></figure>
 
 
 <figure>
   <table>
     <tr>
-      <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch' width='650' height='350'></td>
-      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained backbone' width='650' height='350'></td>
+      <td><img src='./final_img/resnet_sc_pred.JPG' alt='from scratch resnet' width='650' height='350'></td>
+      <td><img src='./final_img/resnet_GD.JPG' alt='pre-trained resnet-50 backbone' width='650' height='350'></td>
     </tr>
   </table>
-  <figcaption><center>Figure 6: Comparison of training results from scratch and pre-trained weights </center></figcaption>
+  <figcaption><center>Figure 7: Comparison of training results of UNet from scratch and pre-trained ResNet-50 backbone </center></figcaption>
 </figure>
 
+<figure>
+  <table>
+    <tr>
+      <td><img src='./final_img/swin_bad.JPG' alt='from scratch swin' width='650' height='350'></td>
+      <td><img src='./final_img/swin_GD.JPG' alt='pre-trained swin tiny backbone' width='650' height='350'></td>
+    </tr>
+  </table>
+  <figcaption><center>Figure 8: Comparison of training results of UNet from scratch and pre-trained Swin Tiny backbone </center></figcaption>
+</figure>
+
+
+## Slice Level Image Localization
+
+Our integrated architecture incorporates a localization model aiming to detect and accurately locate pulmonary embolism instances within CTPA images. We leverage the Faster R-CNN framework, a state-of-the-art object detection model renowned for its efficiency and precision, in our localization branch. The Faster R-CNN consists of a Region Proposal Network (RPN) for generating potential regions of interest (RoI’s), and a Fast R-CNN module refining the RoI’s to provide class labels and bounding box coordinates for detected objects. The localization model is enriched by the pretrained classification branch, using either the pretrained ResNet-50 or Swin Transformer Tiny backbone. This reuse of pretrained weights promotes faster convergence and improved localization accuracy. To train this model, we aggregate annotations in the COCO dataset format, enabling us to utilize both the FUMPE and RSNA PE datasets for diverse and comprehensive training. Various optimization techniques like learning rate scheduling, data augmentation, and anchor box selection enhance model performance, which is monitored via metrics like average precision (AP), Intersection over Union (IoU), precision, and recall. Thus, our fine-tuned localization model with the Faster R-CNN architecture contributes to the integrated architecture's overall goal of efficient and effective pulmonary embolism detection, complementing our classification and segmentation models.
+
+<figure>
+  <table>
+    <tr>
+      <td><img src='./final_img/loc iou.JPG' alt='RCNN IoU' width='450' height='290'></td>
+      <td><img src='./final_img/loc_prec.JPG' alt='RCNN precision' width='450' height='290'></td>
+    </tr>
+  </table>
+  <figcaption><center>Figure 9: IoU, precision and recall scores for the Faster RCNN model </center></figcaption>
+</figure>
+
+<figure><center>
+  <img src="./final_img/loc_resnet.png" alt="Localization results" width="450" height="290">
+  <figcaption><center>Figure 10: PE Localization predictions using PE pretrained ResNet50.</center></figcaption>
+</center></figure>
+
+## Results
 
